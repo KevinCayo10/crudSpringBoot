@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 //@RestController
-//@RequestMapping("/estudiantes")
+@RequestMapping("/estudiantes")
 // Permite llamar por la url
 public class EstudianteController {
  @Autowired
