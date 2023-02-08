@@ -3,6 +3,7 @@ package com.exposicion.grupo5.controller;
 import com.exposicion.grupo5.entity.Estudiante;
 import com.exposicion.grupo5.service.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,19 +23,11 @@ public class EstudianteController1 {
     private EstudianteService estudianteService;
 
     @GetMapping("/")
-    public String mostrar(Model model) {
-        List<Estudiante> estudiantes = estudianteService.mostrar();
+    public String mostrar(Model model, @Param("id") String id) {
+        List<Estudiante> estudiantes = estudianteService.mostrar(id);
         model.addAttribute("estudiantes", estudiantes);
         return "index";
     }
-
-    @GetMapping("/{id}")
-    public String buscar(@PathVariable("id") String id, Model model){
-        List<Estudiante> estudiantes = estudianteService.buscar(id);
-        model.addAttribute("estudiantes", estudiantes);
-        return "index";
-    }
-
 
     @GetMapping("/nuevo-estudiante")
     public String nuevo(Estudiante estudiante) {
@@ -66,8 +59,4 @@ public class EstudianteController1 {
         estudianteService.eliminar(e);
         return "redirect:/";
     }
-
-
-
-
 }

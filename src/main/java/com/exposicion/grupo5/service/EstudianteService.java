@@ -16,11 +16,12 @@ public class EstudianteService {
     /* permite inyectar informacion desde nuestro servicio a nuestro repositorio*/
     private EstudianteRepo estudianteRepo;
 
-    public List<Estudiante> mostrar(){
+    public List<Estudiante> mostrar(String id) {
+        if (id != null) {
+            return estudianteRepo.SearchByCedula(id);
+        }
         return estudianteRepo.findAll();
     }
-
-    public List<Estudiante> buscar(String id){return estudianteRepo.SearchByCedula(id);}
 
     public Estudiante insertar(Estudiante estudiante){
         return estudianteRepo.save(estudiante);

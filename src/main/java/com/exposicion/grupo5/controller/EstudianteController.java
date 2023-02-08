@@ -15,8 +15,8 @@ public class EstudianteController {
  @Autowired
  private EstudianteService estudianteService;
  @GetMapping
- public List<Estudiante> mostrar(){
-     return estudianteService.mostrar();
+ public List<Estudiante> mostrar(String id){
+     return estudianteService.mostrar(id);
  }
 
 

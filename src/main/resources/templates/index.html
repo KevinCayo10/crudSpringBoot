@@ -13,11 +13,20 @@
 </head>
 <body>
 
-<h1>Lista de estudiantes</h1>
-<div>
+<div class="container text-center">
+    <h1>Lista de estudiantes</h1>
     <a class="btn btn-primary" href="/nuevo-estudiante">Nuevo Estudiante</a>
 </div>
 
+<div class="container text-center">
+    <form class="form-inline" th:action="@{/}">
+        <div class="form-group mb-2">
+            <label>Filtrar por: </label>
+        </div>
+        <input type="text" name="id" class="form-control" id="id" th:value="${id}" placeholder="172xxxxxxx">
+        <input type="submit" class="btn btn-info mb-2" value="Buscar">
+    </form>
+</div>
 
 <div class="container-md">
     <table class="table">
@@ -42,8 +51,7 @@
 
             </td>
             <td>
-             <!--   <a class="btn btn-danger" th:href="@{/eliminar-estudiante/{id} (id=${e.est_cedula})}">Eliminar</a>-->
-            </td>
+              <a class="btn btn-danger" th:href="@{/eliminar-estudiante/{id} (id=${e.est_cedula})}" onclick="return confirm('¿Estas Seguro?')">Eliminar</a>            </td>
         </tr>
         </tbody>
     </table>

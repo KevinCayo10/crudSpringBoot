@@ -14,28 +14,34 @@
 <body>
 
 <main>
-  <form method="POST" th:action="@{accion-nuevo}" th:object="${estudiante}">
+  <form method="POST" th:action="@{accion-nuevo}" th:object="${estudiante}" required
+        minlength="10" maxlength="10" size="10">
     <div class="mb-3">
       <label>Cedula</label>
-      <input type="text" class="form-control" th:field="*{est_cedula}">
+      <input type="text" class="form-control" th:field="*{est_cedula}" required
+             minlength="10" maxlength="10" size="10">
     </div>
     <div class="mb-3">
       <label>Nombre</label>
-      <input type="text" class="form-control" th:field="*{est_nombre}">
+      <input type="text" class="form-control" th:field="*{est_nombre}" required
+             minlength="3" maxlength="20" size="20">
     </div>
     <div class="mb-3">
       <label>Apellido</label>
-      <input type="text" class="form-control" th:field="*{est_apellido}">
+      <input type="text" class="form-control" th:field="*{est_apellido}"    required
+             minlength="3" maxlength="20" size="20">
     </div>
     <div class="mb-3">
       <label>Telefono</label>
-      <input type="text" class="form-control" th:field="*{est_telefono}">
+      <input type="text" class="form-control" th:field="*{est_telefono}" required
+             minlength="3" maxlength="10" size="10">
     </div>
     <div class="mb-3">
       <label>Direccion</label>
       <input type="text" class="form-control" th:field="*{est_direccion}">
     </div>
-    <input type="submit" class="btn btn-primary"  value="Guardar">
+    <input type="submit" class="btn btn-primary"  value="Guardar" required
+           minlength="3" maxlength="20" size="20">
   </form>
 </main>
 

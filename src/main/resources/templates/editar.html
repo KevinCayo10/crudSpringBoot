@@ -18,26 +18,31 @@
     <form th:action="@{/accion-editar/{id}(id=${estudiante.est_cedula})}" th:object="${estudiante}" method="post">
         <div class="mb-3">
             <label class="form-label">Cedula</label>
-            <input readonly="true" class="form-control" type="text" th:field="*{est_cedula}">
+            <input readonly="true" class="form-control" type="text" th:field="*{est_cedula}" >
         </div>
         <div class="mb-3">
             <label class="form-label">Nombre</label>
-            <input class="form-control" type="text" th:field="*{est_nombre}">
+            <input class="form-control" type="text" th:field="*{est_nombre}" required
+                   minlength="3" maxlength="20" size="20">
         </div>
         <div class="mb-3">
             <label class="form-label">Apellido</label>
-            <input class="form-control" type="text" th:field="*{est_apellido}">
+            <input class="form-control" type="text" th:field="*{est_apellido}" required
+                   minlength="3" maxlength="20" size="20">
         </div>
         <div class="mb-3">
             <label class="form-label">Telefono</label>
-            <input class="form-control" type="text" th:field="*{est_telefono}">
+            <input class="form-control" type="text" th:field="*{est_telefono}" required
+                   minlength="3" maxlength="10" size="10">
         </div>
         <div class="mb-3">
             <label class="form-label">Direccion</label>
-            <input class="form-control" type="text" th:field="*{est_direccion}">
+            <input class="form-control" type="text" th:field="*{est_direccion}" required
+                   minlength="3" maxlength="20" size="20">
         </div>
         <input class="btn btn-primary" type="submit" value="Guardar">
     </form>
+
 
 </main>
 
